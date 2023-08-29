@@ -1,7 +1,8 @@
 // Require the framework and instantiate it
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')({ logger: false })
 const mongoose = require('mongoose')
 const PORT = 3000
+fastify.register(require('@fastify/formbody'))
 
 mongoose
     .connect('mongodb+srv://root:admin@apidevtest.i0vulw6.mongodb.net/Node-API?retryWrites=true&w=majority')
@@ -11,8 +12,6 @@ mongoose
     .catch((error)=>{
         console.log(error)
     })
-
-
     
 //routes
 fastify.register(require('./routes/routes'))
