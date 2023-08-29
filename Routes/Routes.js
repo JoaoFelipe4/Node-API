@@ -10,7 +10,7 @@ async function routes(fastify,options){
 
         try {
             const product = await Product.create(request.body)
-            reply.send(200).send(product)
+            reply.send(product)
         } catch (error) {
             console.log(error.message)
             reply.send({message:error.message})
